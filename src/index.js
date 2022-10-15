@@ -45,55 +45,53 @@ const createHeader = () => {
 const createHome = () =>{
     const contentDiv = document.createElement("div")
     contentDiv.setAttribute("id", "content");
+    
+    createSection(goal.type(),goal.header(),goal.para(), "img",contentDiv);
+    createSection(team.type(),team.header(),team.para(), "img",contentDiv);
 
-    const purposeDivCon = document.createElement("div");
-    purposeDivCon.setAttribute("id", "purpose");
-
-    const purposeDivImg = document.createElement("img");
-    purposeDivImg.setAttribute("class", "purposeImg");
-
-    const purposeDivWordCon =document.createElement("div");
-    purposeDivWordCon.setAttribute("id","purposeTextCon");
-    const purposeHead = document.createElement("h1");
-
-    purposeHead.textContent = "Our Mission";
-
-    const purposePara = document.createElement("p");
-    purposePara.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-
-    purposeDivWordCon.append(purposeHead,purposePara);
-
-    purposeDivCon.append(purposeDivImg, purposeDivWordCon);
-
-    const teamDivCon = document.createElement("div");
-
-    const teamDivImg = document.createElement("img");
-    teamDivImg.setAttribute("class", "purposeImg");
-
-    const teamDivWordCon = document.createElement("div");
-    teamDivWordCon.setAttribute("id","teamTextCon");
-    const teamHead = document.createElement("h1");
-
-    teamHead.textContent = "Meet the team";
-
-    const teamPara = document.createElement("p");
-    teamPara.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-
-    teamDivWordCon.append(teamHead,teamPara);
-
-    teamDivCon.append(teamDivImg, teamDivWordCon);
-
-
-    contentDiv.append(purposeDivCon, teamDivCon);
     document.body.appendChild(contentDiv);
 };
 
-const removeContent = () =>{
+const createSection = (type,header,para,img,contentDiv) =>{
+    const sectionDivCon = document.createElement("div");
+    sectionDivCon.setAttribute("id", type);
+
+    const sectionDivImg = document.createElement("img");
+    sectionDivImg.setAttribute("class", "purposeImg");
+    sectionDivImg.setAttribute("src", img+".png");
+
+    const sectionDivWordCon = document.createElement("div");
+    sectionDivWordCon.setAttribute("id",type+"TextCon");
+
+    const sectionHead = document.createElement("h1");
+    sectionHead.textContent = header;
+
+    const sectionPara = document.createElement("p");
+    sectionPara.textContent = para;
+
+
+    sectionDivWordCon.append(sectionHead,sectionPara);
+
+    sectionDivCon.append(sectionDivImg, sectionDivWordCon);
+
+    contentDiv.append(sectionDivCon)
+};
+
+const removeContent = () => {
     document.getElementById("content").remove();
 };
 
+
+const sectionContent  = (t, h, p) => {
+    const type = () => t;
+    const header = () => h;
+    const para = () => p;
+
+    return {type, header, para}
+};
+
+const goal  = sectionContent("Goal", "Our Purpose","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+const team  = sectionContent("Team", "Meet the Team","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 
 createHeader();
 createHome();
