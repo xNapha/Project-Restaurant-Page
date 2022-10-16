@@ -39,15 +39,15 @@ const createHeader = () => {
     uL.append(home, menu, contact);
     header.append(imgDiv,uL);
 
-    document.body.appendChild(header);
+    document.body.append(header);
 };
 
 const createHome = () =>{
     const contentDiv = document.createElement("div")
     contentDiv.setAttribute("id", "content");
-    
-    createSection(goal.type(),goal.header(),goal.para(), "img",contentDiv);
-    createSection(team.type(),team.header(),team.para(), "img",contentDiv);
+    for(let i=0; i<sectionArr.length; i++){
+        createSection(sectionArr[i].type(),sectionArr[i].header(),sectionArr[i].para(), "img",contentDiv);
+    }
 
     document.body.appendChild(contentDiv);
 };
@@ -92,6 +92,9 @@ const sectionContent  = (t, h, p) => {
 
 const goal  = sectionContent("Goal", "Our Purpose","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 const team  = sectionContent("Team", "Meet the Team","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+
+let sectionArr = [goal, team];
+
 
 createHeader();
 createHome();
