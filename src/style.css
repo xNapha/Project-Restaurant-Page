@@ -17,27 +17,107 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	display: inherit;
 }
-.hello{
-    background-color: blue;
-    width: 100px;
-    height: 100px;
+body{
+	display:flex;
+	flex-direction: column;
+	font-size: 20px;
+	font-family: sans-serif;
+}
+#headerCon{
+	position: fixed;
+	justify-content: center;
+	background-color: rgba(0,0,0,.5);
+	width: 100%;
+	height: 7rem;
+}
+header{
+	flex-direction: row;
+	gap: 10rem;
+	width: 70rem;
+}
+ul{
+	list-style-type: none;
+	flex-direction: row;
+	gap: 20rem;
+	align-items: center;
+}
+#contentCon{
+	justify-content: center;
+	position:relative;
+	top: 7rem;
+}
+#content{
+	flex-direction: column;
+	align-items: center;
+	width: 70rem;
+	background-color: rgba(0,0,0,0.1);
+}
+.sections{
+	padding: 4rem 0rem 4rem 0rem;
+	gap: 2rem;
+}
+.textCon{
+	flex-direction: column;
+	gap: 2rem;
+}
+#team{
+	flex-direction: row-reverse;
 }
 li:hover{
 	cursor: pointer;
 }
-.logo{
-	width: 100px;
-	height: 100px;
+#logo{
+	width: 7rem;
+	height: 7rem;
 }
-.purposeImg{
-	width: 100px;
-	height:100px;
+.sectionImg{
+	width: 20rem;
+	height: 20rem;
 }
-textarea{
-	resize: none;
+#menuHeaderCon > h1{
+	font-size: 4rem;
+}
+.itemCon{
+	gap: 1rem;
+	width: 65rem;
+	padding: 2rem 0rem 2rem 0rem; 
+}
+.itemImg{
+	width: 10rem;
+	height: 10rem;
+}
+.itemTextCon{
+	flex-direction: column;
+	gap: 1rem;
+}
+.itemTextCon > h1{
+	font-weight: bolder;
+}
+.itemTextCon > p{
+	font-size: 1rem;
+	font-style: italic;
+}
+.contactContent{
+	gap: 3rem;
 }
 #map{
-	height: 400px;
-	width: 400px;
+	height: 28rem;
+	width: 28rem;
+	z-index: -1;
+}
+#detailsCon{
+	flex-direction: column;
+	gap: 1rem;
+}
+#address{
+	flex-direction: column;
+}
+#contactForm{
+	flex-direction: column;
+}
+
+textarea{
+	resize: none;
 }

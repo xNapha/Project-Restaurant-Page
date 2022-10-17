@@ -1,6 +1,9 @@
 const createMenu = () => {
-    const contentDiv = document.createElement("div")
-    contentDiv.setAttribute("id", "content");
+    const contentCon = document.createElement("div");
+    contentCon.setAttribute("id","contentCon");
+
+    const content = document.createElement("div");
+    content.setAttribute("id", "content");
 
     const menuHeaderCon = document.createElement("div");
     menuHeaderCon.setAttribute("id", "menuHeaderCon");
@@ -9,28 +12,31 @@ const createMenu = () => {
     menuHeader.textContent = "Top Sellers";
     menuHeaderCon.append(menuHeader);
 
-    contentDiv.append(menuHeaderCon);
+    content.append(menuHeaderCon);
 
     for(let i=0; i<itemArr.length; i++){
-        createItem(itemArr[i].name(),itemArr[i].description(), contentDiv);
+        createItem(itemArr[i].name(),itemArr[i].description(), content);
     };
-
-    document.body.append(contentDiv);
+    contentCon.append(content);
+    document.body.append(contentCon);
 };
 
 const createItem = (x,y,z) => {
     const itemCon = document.createElement("div");
     itemCon.setAttribute("id", x.split(" ").join("")+"Con");
+    itemCon.setAttribute("class", "itemCon");
 
     const itemImgCon = document.createElement("div");
     itemImgCon.setAttribute("id", x.split(" ").join("")+"ImgCon");
+    itemImgCon.setAttribute("class", "itemImgCon");
 
     const itemImg = document.createElement("img");
     itemImg.setAttribute("src", x.split(" ").join("")+".png");
-    itemImg.setAttribute("class", "purposeImg");
+    itemImg.setAttribute("class", "itemImg");
 
     const itemTextCon = document.createElement("div");
     itemTextCon.setAttribute("id", x.split(" ").join("")+"TextCon");
+    itemTextCon.setAttribute("class", "itemTextCon");
 
     const itemTextHeader = document.createElement("h1");
     itemTextHeader.setAttribute("id", x.split(" ").join("")+"TextHeader");

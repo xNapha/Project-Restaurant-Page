@@ -3,12 +3,15 @@ import { createMenu } from "./menu.js";
 import { createContact } from "./contact.js";
 
 const createHeader = () => {
+    const headerCon = document.createElement("div");
+    headerCon.setAttribute("id","headerCon");
     const header = document.createElement("header");
 
     const imgDiv = document.createElement("div");
+    imgDiv.setAttribute("id","imgDiv")
 
     const img = document.createElement("img");
-    img.setAttribute("class", "logo");
+    img.setAttribute("id", "logo");
 
     imgDiv.append(img);
 
@@ -38,30 +41,35 @@ const createHeader = () => {
 
     uL.append(home, menu, contact);
     header.append(imgDiv,uL);
-
-    document.body.append(header);
+    headerCon.append(header)
+    document.body.append(headerCon);
 };
 
 const createHome = () =>{
-    const contentDiv = document.createElement("div")
-    contentDiv.setAttribute("id", "content");
-    for(let i=0; i<sectionArr.length; i++){
-        createSection(sectionArr[i].type(),sectionArr[i].header(),sectionArr[i].para(), "img",contentDiv);
-    }
+    const contentCon = document.createElement("div");
+    contentCon.setAttribute("id", "contentCon");
 
-    document.body.appendChild(contentDiv);
+    const content = document.createElement("div")
+    content.setAttribute("id", "content");
+    for(let i=0; i<sectionArr.length; i++){
+        createSection(sectionArr[i].type(),sectionArr[i].header(),sectionArr[i].para(), "img",content);
+    }
+    contentCon.append(content)
+    document.body.appendChild(contentCon);
 };
 
-const createSection = (type,header,para,img,contentDiv) =>{
+const createSection = (type,header,para,img,content) =>{
     const sectionDivCon = document.createElement("div");
-    sectionDivCon.setAttribute("id", type);
+    sectionDivCon.setAttribute("id", type.toLowerCase());
+    sectionDivCon.setAttribute("class", "sections");
 
     const sectionDivImg = document.createElement("img");
-    sectionDivImg.setAttribute("class", "purposeImg");
+    sectionDivImg.setAttribute("class", "sectionImg");
     sectionDivImg.setAttribute("src", img+".png");
 
     const sectionDivWordCon = document.createElement("div");
-    sectionDivWordCon.setAttribute("id",type+"TextCon");
+    sectionDivWordCon.setAttribute("id",type.toLowerCase()+"TextCon");
+    sectionDivWordCon.setAttribute("class","textCon");
 
     const sectionHead = document.createElement("h1");
     sectionHead.textContent = header;
@@ -74,11 +82,11 @@ const createSection = (type,header,para,img,contentDiv) =>{
 
     sectionDivCon.append(sectionDivImg, sectionDivWordCon);
 
-    contentDiv.append(sectionDivCon)
+    content.append(sectionDivCon)
 };
 
 const removeContent = () => {
-    document.getElementById("content").remove();
+    document.getElementById("contentCon").remove();
 };
 
 

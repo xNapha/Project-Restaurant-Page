@@ -1,14 +1,19 @@
 const createContact = () => {
-    const contentDiv = document.createElement("div")
-    contentDiv.setAttribute("id", "content");
+    const contentCon = document.createElement("div");
+    contentCon.setAttribute("id","contentCon");
 
-    map(contentDiv);
-    details(contentDiv);
-    contactForm(contentDiv);
 
-    
+    const content = document.createElement("div")
+    content.setAttribute("id", "content");
+    content.setAttribute("class","contactContent")
 
-    document.body.appendChild(contentDiv);
+    map(content);
+    details(content);
+    contactForm(content);
+
+    contentCon.append(content);
+
+    document.body.appendChild(contentCon);
 };
 
 const contactForm = (c) =>{
@@ -29,6 +34,8 @@ const contactForm = (c) =>{
     commentSection.setAttribute("name", "feedback");
     commentSection.setAttribute("rows", "14");
     commentSection.setAttribute("cols", "100");
+    commentSection.setAttribute("placeholder", "Enter your comments here...");
+
 
     const submitButtonCon = document.createElement("div");
     submitButtonCon.setAttribute("id", "submitButtonCon");
@@ -100,8 +107,8 @@ const map = (c) =>{
     locationCon.setAttribute("id", "map");
     
     const iframe = document.createElement("iframe");
-    iframe.setAttribute("height", "400px");
-    iframe.setAttribute("width", "400px");
+    iframe.setAttribute("height", "450rem");
+    iframe.setAttribute("width", "450rem");
     iframe.setAttribute("allowfullscreen", "true");
     iframe.setAttribute("loading", "lazy");
     iframe.setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyATaCCAPbYWTfSDfkQlMTua29Tqslm2UI4&q=Melbourne+Central,Melbourne+VIC");
