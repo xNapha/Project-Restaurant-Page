@@ -4,6 +4,7 @@ const createMenu = () => {
 
     const content = document.createElement("div");
     content.setAttribute("id", "content");
+    content.setAttribute("class", "menuContent");
 
     const menuHeaderCon = document.createElement("div");
     menuHeaderCon.setAttribute("id", "menuHeaderCon");

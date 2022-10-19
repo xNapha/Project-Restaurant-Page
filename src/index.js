@@ -51,6 +51,7 @@ const createHome = () =>{
 
     const content = document.createElement("div")
     content.setAttribute("id", "content");
+    content.setAttribute("class", "homeContent");
     for(let i=0; i<sectionArr.length; i++){
         createSection(sectionArr[i].type(),sectionArr[i].header(),sectionArr[i].para(), "img",content);
     }
