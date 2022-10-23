@@ -32,8 +32,6 @@ const contactForm = (c) =>{
     const commentSection = document.createElement("textArea");
     commentSection.setAttribute("id", "commentSection");
     commentSection.setAttribute("name", "feedback");
-    commentSection.setAttribute("rows", "14");
-    commentSection.setAttribute("cols", "100");
     commentSection.setAttribute("placeholder", "Enter your comments here...");
 
 
@@ -74,21 +72,21 @@ const details = (c) => {
     const detailsCon = document.createElement("div");
     detailsCon.setAttribute("id", "detailsCon");
 
-    const addressCon = document.createElement("div");
-    addressCon.setAttribute("id","addressCon");
-    const address = document.createElement("div");
-    address.setAttribute("id","address");
-    const streetName = document.createElement("p");
-    streetName.setAttribute("id", "streetName")
-    const subrurbName = document.createElement("p");
-    subrurbName.setAttribute("id", "subrurbName")
-    const countryName = document.createElement("p");
-    countryName.setAttribute("id", "countryName")
-    streetName.textContent = "123 Placeholder Street,"
-    subrurbName.textContent = "Placeholder 0000,"
-    countryName.textContent = "Melbourne, VIC"
+    const openingTimesCon = document.createElement("div");
+    openingTimesCon.setAttribute("id","openingTimesCon");
+    const openingTimes = document.createElement("div");
+    openingTimes.setAttribute("id","openingTimes");
+    const head = document.createElement("p");
+    head.setAttribute("id", "head")
+    const weekdays = document.createElement("p");
+    weekdays.setAttribute("id", "subrurbName")
+    const weekends = document.createElement("p");
+    weekends.setAttribute("id", "countryName")
+    head.textContent = "Opening Hours:"
+    weekdays.textContent = "Weekdays: 8 AM - 9PM"
+    weekends.textContent = "Weekends: 8 AM - 11PM"
     
-    address.append(streetName,subrurbName,countryName);
+    openingTimes.append(head,weekdays,weekends);
 
     const numberCon = document.createElement("div");
     numberCon.setAttribute("id", "numberCon");
@@ -96,15 +94,15 @@ const details = (c) => {
     number.setAttribute("id", "number");
     number.textContent = "0412 345 678"
 
-    addressCon.append(address);
+    openingTimesCon.append(openingTimes);
     numberCon.append(number);
-    detailsCon.append(addressCon, numberCon);
+    detailsCon.append(openingTimesCon, numberCon);
     c.append(detailsCon);
 };
 
 const map = (c) =>{
     const locationCon = document.createElement("div");
-    locationCon.setAttribute("id", "map");
+    locationCon.setAttribute("id", "locationCon");
     
     const iframe = document.createElement("iframe");
     iframe.setAttribute("height", "450rem");

@@ -68,7 +68,12 @@ const first = menuItems("First Item", "Lorem ipsum dolor sit amet, consectetur a
 const second = menuItems("Second Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 const third = menuItems("Third Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 const fourth = menuItems("Fourth Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+const fifth = menuItems("Fifth Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+const sixth = menuItems("Sixth Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+const seventh= menuItems("Seventh Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+const eighth = menuItems("Eighth Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+const nineth = menuItems("Nineth Item", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 
-let itemArr = [first, second, third,fourth];
+let itemArr = [first, second, third,fourth, fifth, sixth, seventh, eighth, nineth];
 
 export {createMenu};

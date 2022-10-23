@@ -8,7 +8,7 @@ const createHeader = () => {
     const header = document.createElement("header");
 
     const imgDiv = document.createElement("div");
-    imgDiv.setAttribute("id","imgDiv")
+    imgDiv.setAttribute("id","imgDiv");
 
     const img = document.createElement("img");
     img.setAttribute("id", "logo");
@@ -22,6 +22,7 @@ const createHeader = () => {
     home.addEventListener("click", ()=>{
         removeContent();
         createHome();
+        createFooter();
     });
 
     const menu = document.createElement("li");
@@ -29,19 +30,21 @@ const createHeader = () => {
     menu.addEventListener("click", ()=>{
         removeContent();
         createMenu();
+        createFooter();
     });
 
     const contact = document.createElement("li");
-    contact.textContent = "Contact"
+    contact.textContent = "Contact";
     contact.addEventListener("click", ()=>{
         removeContent();
         createContact();
+        createFooter();
     });
 
 
     uL.append(home, menu, contact);
     header.append(imgDiv,uL);
-    headerCon.append(header)
+    headerCon.append(header);
     document.body.append(headerCon);
 };
 
@@ -53,9 +56,9 @@ const createHome = () =>{
     content.setAttribute("id", "content");
     content.setAttribute("class", "homeContent");
     for(let i=0; i<sectionArr.length; i++){
-        createSection(sectionArr[i].type(),sectionArr[i].header(),sectionArr[i].para(), "img",content);
+        createSection(sectionArr[i].type(),sectionArr[i].header(),sectionArr[i].para(), sectionArr[i].type().toLowerCase(),content);
     }
-    contentCon.append(content)
+    contentCon.append(content);
     document.body.appendChild(contentCon);
 };
 
@@ -83,11 +86,12 @@ const createSection = (type,header,para,img,content) =>{
 
     sectionDivCon.append(sectionDivImg, sectionDivWordCon);
 
-    content.append(sectionDivCon)
+    content.append(sectionDivCon);
 };
 
 const removeContent = () => {
     document.getElementById("contentCon").remove();
+    document.getElementById("footerCon").remove();
 };
 
 
@@ -96,16 +100,37 @@ const sectionContent  = (t, h, p) => {
     const header = () => h;
     const para = () => p;
 
-    return {type, header, para}
+    return {type, header, para};
 };
 
-const goal  = sectionContent("Goal", "Our Purpose","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-const team  = sectionContent("Team", "Meet the Team","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+const createFooter = () =>{
+    const footerCon = document.createElement("div");
+    footerCon.setAttribute("id","footerCon");
+
+    const footer = document.createElement("footer");
+
+    const para = document.createElement("p");
+    para.textContent = "Copyright ©";
+
+    const githubLink = document.createElement("a");
+    githubLink.textContent = "xNapha";
+    githubLink.setAttribute("href","https://github.com/xNapha")
+    githubLink.setAttribute("target", "_blank");
+    githubLink.setAttribute("class", "github");
+    
+    footer.append(para,githubLink);
+    footerCon.append(footer);
+    document.body.append(footerCon);
+};
+
+const goal  = sectionContent("Goal", "Our Purpose","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+const team  = sectionContent("Team", "Meet the Team","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 
 let sectionArr = [goal, team];
 
 
 createHeader();
 createHome();
+createFooter();
 
 

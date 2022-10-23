@@ -19,18 +19,27 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	display: inherit;
 }
+:root{
+	--first-prio-color: #A27B5C;
+	--second-prio-color: #3F4E4F;
+	--third-prio-color:#2C3639;
+	--fourth-prio-color:#DCD7C9; 
+	--highlight-color: #4c5b5c;
+	--input-field-width: 30rem;
+}
 body{
 	display:flex;
 	flex-direction: column;
 	font-size: 20px;
 	font-family: sans-serif;
+	background-color: var(--fourth-prio-color);
 }
 #headerCon{
 	position: fixed;
 	justify-content: center;
-	background-color: rgba(0,0,0,1);
+	background-color: var(--third-prio-color);
 	z-index: 1;
-	color: rgba(255,255,255,1);
+	color: var(--first-prio-color);
 	width: 100%;
 	height: 7rem;
 }
@@ -55,8 +64,7 @@ li{
 }
 li:hover{
 	cursor: pointer;
-	color: rgba(0,0,0,1);
-	background-color: rgba(255,255,255,1);
+	background-color: var(--highlight-color);
 }
 #contentCon{
 	justify-content: center;
@@ -67,7 +75,7 @@ li:hover{
 	width: 70rem;
 	position:relative;
 	padding-top: 7rem;
-	background-color: rgba(0,0,0,0.1);
+	color: var(--second-prio-color);
 }
 .sections{
 	padding: 4rem 0rem 4rem 0rem;
@@ -88,12 +96,13 @@ li:hover{
 	width: 20rem;
 	height: 20rem;
 }
-.menuContent{
-	position: relative;
-	top:1rem;
-}
 #menuHeaderCon > h1{
 	font-size: 4rem;
+}
+h1{
+	color: var(--first-prio-color);
+	font-size: larger;
+	font-weight: bolder;
 }
 .itemCon{
 	gap: 1rem;
@@ -116,26 +125,68 @@ li:hover{
 	font-style: italic;
 }
 .contactContent{
-	position:relative;
-	top: 2rem;
 	gap: 3rem;
 }
-#map{
+#locationCon{
 	height: 28rem;
 	width: 28rem;
-	z-index: -1;
+	z-index: 0;
 }
 #detailsCon{
 	flex-direction: column;
 	gap: 1rem;
 }
-#address{
+#openingTimes{
 	flex-direction: column;
 }
 #contactForm{
 	flex-direction: column;
+	gap: .5rem;
 }
-
+.inputField{
+	background-color: var(--fourth-prio-color);
+	width: var(--input-field-width);
+	border: 1px solid var(--first-prio-color);
+	border-radius: 0.5rem;
+}
 textarea{
 	resize: none;
+	background-color: var(--fourth-prio-color);
+	width: var(--input-field-width);
+	height: 10rem;
+	border: 1px solid var(--first-prio-color);
+	border-radius: 0.5rem;
+
+}
+#submitButton{
+	background-color: var(--first-prio-color);
+	color: var(--fourth-prio-color);
+	border: 1px solid var(--first-prio-color);
+	border-radius: 0.5rem;
+	height: 2rem;
+	width: var(--input-field-width);
+}
+#submitButton:hover{
+	cursor: pointer;
+}
+#footerCon{
+	display:flex;
+	justify-content: center;
+	background-color: var(--third-prio-color);
+	width: 100%;
+	height: 2rem;
+	position:fixed;
+	bottom: 0;
+
+}
+footer{
+	display: flex;
+	flex-direction: row;
+	color: var(--first-prio-color);
+	gap: 0.3rem;
+}
+
+.github{
+	color: var(--first-prio-color);
+	text-decoration-line: none;
 }
